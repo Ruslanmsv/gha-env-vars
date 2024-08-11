@@ -11,8 +11,8 @@ jobs:
     # environment: testing
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.pvcaz.mongodb.net
-      MONGODB_CLUSTER_USERNAME: ruslanmsv
-      MONGODB_CLUSTER_PASSWORD: BxCQmS57k64Lfer0
+      MONGODB_USERNAME: ruslanmsv
+      MONGODB_PASSWORD: BxCQmS57k64Lfer0
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
@@ -31,12 +31,12 @@ jobs:
         run: npm test
       - name: Output information
         run: |
-          echo "MONGODB_CLUSTER_USERNAME: ${{ env.MONGODB_CLUSTER_USERNAME }}
+          echo "MONGODB_CLUSTER_USERNAME: ${{ env.MONGODB_USERNAME }}
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: |
-          echo "MONGODB_CLUSTER_USERNAME: $MONGODB_CLUSTER_USERNAME"
+          echo "MONGODB_CLUSTER_USERNAME: $MONGODB_USERNAME"
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
